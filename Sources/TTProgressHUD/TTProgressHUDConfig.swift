@@ -47,6 +47,12 @@ public struct TTProgressHUDConfig: Hashable {
 
     // Haptics
     var hapticsEnabled: Bool
+    
+    var paddingRatio: CGFloat = 7
+    
+    var popupSize: CGSize = CGSize(width: 120, height: 120)
+    
+    var imageViewTintColor: Color = Color.black
 
     public init(
         type: TTProgressHUDType         = .loading,
@@ -65,14 +71,15 @@ public struct TTProgressHUDConfig: Hashable {
         borderWidth: CGFloat            = 0.0,
         lineWidth: CGFloat              = 10.0,
         imageViewSize: CGSize           = CGSize(width: 100, height: 100),
-        imageViewForegroundColor: Color = .primary,
+        imageViewForegroundColor: Color = .green,
         successImage: String            = "checkmark.circle",
         warningImage: String            = "exclamationmark.circle",
         errorImage: String              = "xmark.circle",
         shouldAutoHide: Bool            = false,
         allowsTapToHide: Bool           = false,
         autoHideInterval: TimeInterval  = 10.0,
-        hapticsEnabled: Bool            = true
+        hapticsEnabled: Bool            = true,
+        popupSize: CGSize                = CGSize(width: 120, height: 120)
     ) {
         self.type = type
 
@@ -111,5 +118,6 @@ public struct TTProgressHUDConfig: Hashable {
         self.hapticsEnabled = hapticsEnabled
         
         self.foregroundColor = foregroundColor
+        self.popupSize = popupSize
     }
 }
